@@ -1,10 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-import re
-import os
-import ipaddress
-import random
+import re, os, ipaddress, random, uuid
 from datetime import datetime, timedelta
+myID = uuid
 
 # ✅ URL源与简称
 sources = {
@@ -43,7 +41,6 @@ utctimestamp = datetime.now().strftime('%Y%m%d%H%M')
 beijing_time = datetime.utcnow() + timedelta(hours=8)
 now_str = beijing_time.strftime('%Y-%m-%d_%H:%M')
 timestamp = beijing_time.strftime('%Y%m%d_%H:%M')
-pid = random.sample('zyxwvutsrqponmlkjihgfedcba1234567890',6)
 
 # 遍历来源
 for url, shortname in sources.items():
@@ -64,7 +61,7 @@ for url, shortname in sources.items():
             try:
                 if ipaddress.ip_address(ip).version == 4:
                     ip_with_port = f"{ip}:{PORT}"
-                    comment = f"{shortname}-{pid}"
+                    comment = f"{shortname}-{myID.uuid4().hex[27:] } + {str(random.randint(0,10))}"
                     ipv4_dict[ip_with_port] = comment
             except ValueError:
                 continue
@@ -75,7 +72,7 @@ for url, shortname in sources.items():
                 ip_obj = ipaddress.ip_address(ip)
                 if ip_obj.version == 6:
                     ip_with_port = f"[{ip_obj.compressed}]:{PORT}"
-                    comment = f"IPv6{shortname}-{pid}"
+                    comment = f"IPv6{shortname}-{myID.uuid4().hex[27:] } + {str(random.randint(0,10))}"
                     ipv6_dict[ip_with_port] = comment
             except ValueError:
                 continue
