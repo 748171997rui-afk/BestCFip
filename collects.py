@@ -7,10 +7,10 @@ myID = uuid
 sources = {
     'https://api.uouin.com/cloudflare.html': 'Uouin',
     'https://ip.164746.xyz': 'ZXW',
-    'https://ipdb.030101.xyz/bestcfv4': 'IPDB',
+    'https://ipdb.api.030101.xyz/?type=bestcf': 'IPDB',
     'https://www.wetest.vip/page/cloudflare/address_v6.html': 'WeTestV6',
-    'https://ipdb.030101.xyz/bestcfv6': 'IPDBv6',
-    'https://stock.hostmonit.com/CloudFlareYes': 'CFYes',
+    'https://ipdb.api.030101.xyz/?type=bestcfv6': 'IPDBv6',
+    'https://raw.githubusercontent.com/crow1874/CF-DNS-Clone/refs/heads/main/CloudFlareYes.txt': 'CFYes',
     'https://ip.haogege.xyz': 'HaoGG',
     'https://raw.githubusercontent.com/crow1874/CF-DNS-Clone/refs/heads/main/vps789.txt': 'VPS',
     'https://www.wetest.vip/page/cloudflare/address_v4.html': 'WeTest'
