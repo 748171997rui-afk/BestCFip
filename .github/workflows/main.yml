@@ -3,7 +3,7 @@ name: Auto IP Collector
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */2 * * *' # every 2 hours
+    - cron: '0 * * * *' # every 1 小时之前
 
 jobs:
   collect:
@@ -35,4 +35,5 @@ jobs:
 
           git add ipv4.txt ipv6.txt
           git diff --cached --quiet || git commit -m "Updated at ${update_version}"
+
           git push
